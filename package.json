@@ -1,0 +1,87 @@
+{
+  "name": "@hipsjs/adonis-multitenancy",
+  "version": "1.0.0",
+  "description": "Make your AdonisJS application multi tenancy aware",
+  "main": "./build/providers/MultiTenancyProvider.js",
+  "files": [
+    "build/adonis-typings",
+    "build/providers",
+    "build/templates",
+    "build/src",
+  ],
+  "scripts": {
+    "lint": "eslint . --ext=.ts",
+    "dev": "tsc --watch",
+    "pretest": "npm run lint",
+    "test": "node japaFile.js",
+    "clean": "rm -rf build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "copy:files": "copyfiles \"templates/*.txt\" build",
+    "build": "npm run compile",
+    "prepublishOnly": "npm run build"
+  },
+  "typings": "./build/adonis-typings/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/remcoplasmeyer/adonis-multitenancy.git"
+  },
+  "keywords": [
+    "adonisjs",
+    "lucid",
+    "adonis-lucid",
+    "adonis-uuid",
+    "adonis-multitenancy"
+  ],
+  "author": "Remco Plasmeijer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/remcoplasmeyer/adonis-multitenancy/issues"
+  },
+  "devDependencies": {
+    "@adonisjs/ace": "^6.9.2",
+    "@adonisjs/application": "^1.3.13",
+    "@adonisjs/config": "^1.0.14",
+    "@adonisjs/core": "^5.0.0-preview-rc-1.9",
+    "@adonisjs/encryption": "^2.0.4",
+    "@adonisjs/events": "^2.0.1",
+    "@adonisjs/fold": "^6.3.5",
+    "@adonisjs/hash": "^3.1.1",
+    "@adonisjs/logger": "^2.0.4",
+    "@adonisjs/lucid": "^8.1.0",
+    "@adonisjs/mrm-preset": "^2.3.0",
+    "@adonisjs/profiler": "^3.0.1",
+    "@adonisjs/session": "^3.0.4",
+    "@adonisjs/sink": "^3.0.2",
+    "@poppinss/dev-utils": "^1.0.6",
+    "@types/node": "^13.13.5",
+    "@types/supertest": "^2.0.10",
+    "commitizen": "^4.1.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-adonis": "^1.0.8",
+    "japa": "^3.0.1",
+    "knex": "^0.21.1",
+    "mrm": "^2.3.3",
+    "np": "^6.2.5",
+    "pino-pretty": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.2.0",
+    "supertest": "^4.0.2",
+    "ts-essentials": "^7.0.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "adonisjs": {
+    "instructions": "./build/instructions.js",
+    "types": "@hipsjs/adonis-multitenancy",
+    "providers": [
+      "@hipsjs/adonis-multitenancy"
+    ]
+  },
+  "dependencies": {
+    "@poppinss/hooks": "^1.0.5",
+    "@poppinss/utils": "^2.2.7"
+  }
+}

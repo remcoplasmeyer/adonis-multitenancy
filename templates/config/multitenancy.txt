@@ -1,0 +1,24 @@
+import Organisation from 'App/Models/Organisation'
+import { MultiTenancyConfig } from '@ioc:Hipsjs/MultiTenancy'
+
+/*
+|--------------------------------------------------------------------------
+| AdonisJS MultiTenancy
+|--------------------------------------------------------------------------
+|
+| List of available authentication mapping. You must first define them
+| inside the `contracts/auth.ts` file before mentioning them here.
+|
+*/
+export default {
+
+  /*
+   * Change to Lucid model that you are using as a tenant
+   */
+  tenant_model: LucidModel,
+
+  /*
+   * Change to your tenant's foreign key on other tables
+   */
+  tenant_foreign_key: 'organisation_id'
+}
