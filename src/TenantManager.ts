@@ -1,4 +1,4 @@
-import {MultiTenancyConfig, TenantManagerContract} from '@ioc:Hipsjs/MultiTenancy'
+import {TenantManagerContract} from '@ioc:Hipsjs/MultiTenancy'
 import {IocContract} from '@adonisjs/fold/build'
 import {BaseModel} from '@ioc:Adonis/Lucid/Orm'
 import {LucidRow} from '@ioc:Adonis/Lucid/Model'
@@ -10,13 +10,15 @@ export class TenantManager implements TenantManagerContract {
   public tenants: LucidRow[]
 
   // @ts-ignore
-  constructor (private container: IocContract, private config: MultiTenancyConfig) {
+  constructor (private container: IocContract) {
     // todo:
     // const validator = new TenantConfigValidator(config, 'multitenancy', 'config/multitenancy')
   }
 
   private model (): typeof BaseModel{
-    return this.config.tenant_model
+    const Config = this.container.use('Adonis/Core/Config')
+    const config = Config.get('multitenancy')
+    return config.tenant_model
   }
 
   public async refreshTenants (): Promise<LucidRow[]> {

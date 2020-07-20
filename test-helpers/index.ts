@@ -228,9 +228,10 @@ export const tenantConfig: MultiTenancyConfig = {
 
 export const config = new Config({
   multitenancy: tenantConfig,
+  test: tenantConfig,
 })
 
-export const tenantManager = new TenantManager(container, tenantConfig)
+export const tenantManager = new TenantManager(container)
 
 container.singleton('Hipsjs/MultiTenancy', () => {
   return {
