@@ -1,13 +1,13 @@
 {
   "name": "@hipsjs/adonis-multitenancy",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "Make your AdonisJS application multi tenancy aware",
   "main": "./build/providers/MultiTenancyProvider.js",
   "files": [
     "build/adonis-typings",
     "build/providers",
     "build/templates",
-    "build/src",
+    "build/src"
   ],
   "scripts": {
     "lint": "eslint . --ext=.ts",
@@ -15,8 +15,8 @@
     "pretest": "npm run lint",
     "test": "node japaFile.js",
     "clean": "rm -rf build",
-    "compile": "npm run lint && npm run clean && tsc",
-    "copy:files": "copyfiles \"templates/*.txt\" build",
+    "compile": "npm run lint && npm run clean && tsc && npm run copy:files",
+    "copy:files": "copyfiles \"templates/**/*.txt\" build",
     "build": "npm run compile",
     "prepublishOnly": "npm run build"
   },
@@ -28,8 +28,6 @@
   "keywords": [
     "adonisjs",
     "lucid",
-    "adonis-lucid",
-    "adonis-uuid",
     "adonis-multitenancy"
   ],
   "author": "Remco Plasmeijer",
@@ -56,6 +54,8 @@
     "@types/node": "^13.13.5",
     "@types/supertest": "^2.0.10",
     "commitizen": "^4.1.2",
+    "copyfiles": "^2.3.0",
+    "del-cli": "^3.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-adonis": "^1.0.8",
     "japa": "^3.0.1",
@@ -74,11 +74,15 @@
     "test": "test"
   },
   "adonisjs": {
-    "instructions": "./build/instructions.js",
     "types": "@hipsjs/adonis-multitenancy",
     "providers": [
       "@hipsjs/adonis-multitenancy"
-    ]
+    ],
+    "templates": {
+      "config": [
+        "multitenancy.txt"
+      ]
+    }
   },
   "dependencies": {
     "@poppinss/hooks": "^1.0.5",

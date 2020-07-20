@@ -9,6 +9,8 @@
 import {IocContract} from '@adonisjs/fold'
 import {TenantManager} from '../src/TenantManager'
 import {MultiTenancyConfig} from '@ioc:Hipsjs/MultiTenancy'
+import {isTenant} from '../src/Decorator/isTenant'
+import {belongsToTenant} from '../src/Decorator/belongsToTenant'
 
 /**
  * Provider to register multitenancy with the IoC container
@@ -21,6 +23,8 @@ export default class MultiTenancyProvider {
       const multiTenancyConfig = this.getConfig()
       return {
         TenantManager: new TenantManager(this.container, multiTenancyConfig),
+        isTenant: isTenant,
+        belongsToTenant: belongsToTenant,
       }
     })
   }

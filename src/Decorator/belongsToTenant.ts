@@ -6,15 +6,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-import {LucidRow} from '@ioc:Adonis/Lucid/Model'
+import {LucidModel, LucidRow} from '@ioc:Adonis/Lucid/Model'
 import {BelongsToTenantDecorator, MultiTenancyConfig} from '@ioc:Hipsjs/MultiTenancy'
 import {NeedsTenantException} from '../Exceptions/NeedsTenantException'
-import {BaseModel} from '@ioc:Adonis/Lucid/Orm'
 import {scope} from '@adonisjs/lucid/build/src/Helpers/scope'
 import {lodash} from '@poppinss/utils'
 
 export const belongsToTenant: BelongsToTenantDecorator = () => {
-  return <T extends typeof BaseModel>(constructor: T) => {
+  return <T extends LucidModel>(constructor: T) => {
     constructor.boot()
 
     const parent = Object.getPrototypeOf(constructor.prototype).constructor

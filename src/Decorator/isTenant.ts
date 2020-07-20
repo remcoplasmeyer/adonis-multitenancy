@@ -7,10 +7,10 @@
  * file that was distributed with this source code.
  */
 import {IsTenantDecorator, TenantManagerContract} from '@ioc:Hipsjs/MultiTenancy'
-import {BaseModel} from '@ioc:Adonis/Lucid/Orm'
+import {LucidModel} from '@ioc:Adonis/Lucid/Model'
 
 export const isTenant: IsTenantDecorator = () => {
-  return <T extends typeof BaseModel>(constructor: T) => {
+  return <T extends LucidModel>(constructor: T) => {
     constructor.boot()
 
     const parent = Object.getPrototypeOf(constructor.prototype).constructor
