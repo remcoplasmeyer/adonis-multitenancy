@@ -60,6 +60,7 @@ Add the `@belongsToTenant` decorator to models that belong to a tenant:
 @belongsToTenant()
 export class User extends BaseModel {
   public organisationId: number
+  public organisation: Organisation
 }
 ```
 

@@ -7,13 +7,15 @@
  * file that was distributed with this source code.
  */
 
-import { BaseModel } from '../index'
-import { column } from '@adonisjs/lucid/build/src/Orm/Decorators'
-import { belongsToTenant } from '../../src/Decorator/belongsToTenant'
+import {BaseModel} from '../index'
+import {column} from '@adonisjs/lucid/build/src/Orm/Decorators'
+import {belongsToTenant} from '../../src/Decorator/belongsToTenant'
+import {Organisation} from './Organisation'
 
 @belongsToTenant()
 export class User extends BaseModel {
   public organisationId: number
+  public organisation: Organisation
 
   @column()
   public username: string

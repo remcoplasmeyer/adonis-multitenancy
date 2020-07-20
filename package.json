@@ -1,6 +1,6 @@
 {
   "name": "@hipsjs/adonis-multitenancy",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Make your AdonisJS application multi tenancy aware",
   "main": "./build/providers/MultiTenancyProvider.js",
   "files": [

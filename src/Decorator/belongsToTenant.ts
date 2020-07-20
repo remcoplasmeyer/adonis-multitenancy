@@ -33,7 +33,6 @@ export const belongsToTenant: BelongsToTenantDecorator = () => {
 
     // construct options
     const columnOptions = {
-      columnName: columnName,
       meta: {
         type: 'number',
       },
@@ -41,7 +40,12 @@ export const belongsToTenant: BelongsToTenantDecorator = () => {
 
     // add column and relation
     constructor.$addColumn(modelColumnName, columnOptions)
-    constructor.$addRelation(TenantModel.name.toLowerCase(), 'belongsTo', () => TenantModel, { foreignKey: columnName })
+    constructor.$addRelation(
+      TenantModel.name.toLowerCase(),
+      'belongsTo',
+      () => TenantModel,
+      { foreignKey: modelColumnName }
+    )
 
     // add hook that throws error when no tenant is supplied
     constructor.before('create', (modelInstance: LucidRow) => {

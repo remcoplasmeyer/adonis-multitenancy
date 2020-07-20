@@ -34,7 +34,12 @@ test.group('MultiTenancy Checks', (group) => {
     const user1: User = new User()
     user1.fill({username: 'hips', email: 'remco.plasmeijer@gmail.com', organisationId: 1})
     await user1.save()
+    // check if tenant is saved
     assert.isTrue(user1.organisationId === 1)
+
+    // check if we can fetch the tenant with the Lucid API
+    const fetchedUser: User = await User.query().where('id', 1).preload('organisation').first()
+    assert.isTrue(fetchedUser.organisation.id === 1)
   })
 
   test('throw error without tenant', async (assert) => {
