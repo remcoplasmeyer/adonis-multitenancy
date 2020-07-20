@@ -35,8 +35,9 @@ declare module '@ioc:Hipsjs/MultiTenancy' {
   export const TenantManager: TenantManagerContract
   export type BelongsToTenantDecorator = () => DecoratorFn
   export type IsTenantDecorator = () => DecoratorFn
+  export const belongsToTenant: BelongsToTenantDecorator
+  export const isTenant: IsTenantDecorator
 
   // todo:
   export const UserTenantFinder: TenantFinderContract
-  export const belongsToTenant: BelongsToTenantDecorator
 }
