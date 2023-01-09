@@ -45,7 +45,7 @@
     "@adonisjs/fold": "^6.3.5",
     "@adonisjs/hash": "^3.1.1",
     "@adonisjs/logger": "^2.0.4",
-    "@adonisjs/lucid": "^8.1.0",
+    "@adonisjs/lucid": "^18.3.0",
     "@adonisjs/mrm-preset": "^2.3.0",
     "@adonisjs/profiler": "^3.0.1",
     "@adonisjs/session": "^3.0.4",
